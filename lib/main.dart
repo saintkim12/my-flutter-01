@@ -70,6 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final myButtonStyle = ButtonStyle(
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            const RoundedRectangleBorder(borderRadius: BorderRadius.zero)));
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -96,14 +99,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   flex: 5,
                   child: Container(
                     height: 300,
-                    color: Colors.purple[200],
+                    color: const Color.fromARGB(124, 206, 147, 216),
                     child: TextButton(
                         onPressed: () => {},
-                        style: ButtonStyle(
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero))),
+                        style: myButtonStyle,
                         child: const Text('hi')),
                   ),
                 ),
@@ -114,16 +113,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.blue,
                     child: TextButton(
                         onPressed: () => {},
-                        style: ButtonStyle(
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero))),
+                        style: myButtonStyle,
                         child: const Text('hello')),
                   ),
                 )
               ],
-            )
+            ),
+            Row(
+                children: [
+                  Expanded(
+                    flex: 9,
+                    child: Container(height: 100, child: const TextField()),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                        child: IconButton(
+                      onPressed: () => {},
+                      icon: const Icon(Icons.search),
+                    )),
+                  )
+                ])
           ],
         ))));
   }
